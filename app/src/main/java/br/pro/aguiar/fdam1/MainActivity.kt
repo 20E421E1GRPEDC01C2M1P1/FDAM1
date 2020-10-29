@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.pro.aguiar.fdam1.model.Usuario
+import kotlinx.android.synthetic.main.activity_cadastro.*
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_home.textView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -38,13 +40,32 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        /*
+//        btnCalcularIMC.setOnClickListener {
+//            var intent = Intent(
+//                this,
+//                ResultadoImcActivity::class.java)
+//            startActivityForResult(intent, 2)
+//        }
+ */
+
         btnCadastrarse.setOnClickListener {
             var intent = Intent(
                     this,
-                    CadastroActivity::class.java
-            )
-            startActivity(intent)
+                    CadastroActivity::class.java)
+            startActivityForResult(intent, 100)
         }
+    }
 
+    override fun onActivityResult(
+        requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        var usuario = data?.getStringExtra("usuario")
+        editTextNomeCompleto.setText(usuario)
+//        if (requestCode == 100){
+//            if (requestCode == 1){
+//
+//            }
+//        }
     }
 }
