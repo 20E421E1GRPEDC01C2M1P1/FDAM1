@@ -12,8 +12,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnAcessar.setOnClickListener {
+            // Pegar o nome
+            var nomeCompleto =
+                editTextNomeCompleto.text.toString()
+
+            // Intent
             var intent = Intent(this,
                     HomeActivity::class.java)
+
+            intent.putExtra("nomeDoUsuario", nomeCompleto)
+            intent.putExtra("idadeDoUsuario", 90)
+            intent.putExtra("matriculaDoUsuario", 5647f)
+
+            // Carregar o nome
             startActivity(intent)
         }
 
