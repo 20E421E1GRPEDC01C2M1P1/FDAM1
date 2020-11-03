@@ -1,6 +1,7 @@
 package br.pro.aguiar.fdam1
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.pro.aguiar.fdam1.model.Usuario
@@ -10,10 +11,10 @@ import kotlinx.android.synthetic.main.activity_home.textView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         btnAcessar.setOnClickListener {
             // Pegar o nome
             var nomeCompleto =
@@ -39,7 +40,6 @@ class MainActivity : AppCompatActivity() {
             // Carregar o nome
             startActivity(intent)
         }
-
         /*
 //        btnCalcularIMC.setOnClickListener {
 //            var intent = Intent(
@@ -48,12 +48,21 @@ class MainActivity : AppCompatActivity() {
 //            startActivityForResult(intent, 2)
 //        }
  */
-
         btnCadastrarse.setOnClickListener {
             var intent = Intent(
                     this,
                     CadastroActivity::class.java)
             startActivityForResult(intent, 100)
+        }
+
+        textViewHomePage.setOnClickListener {
+            val homePageIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.com/")
+            )
+            if (homePageIntent.resolveActivity(packageManager) != null) {
+                startActivity(homePageIntent)
+            }
         }
     }
 
@@ -62,10 +71,5 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         var usuario = data?.getStringExtra("usuario")
         editTextNomeCompleto.setText(usuario)
-//        if (requestCode == 100){
-//            if (requestCode == 1){
-//
-//            }
-//        }
     }
 }
