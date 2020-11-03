@@ -58,27 +58,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="br.pro.aguiar.fdam1.DadoFragment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAcessar"
-        tools:layout="@layout/fragment_dado" />
-
-    <fragment
-        android:id="@+id/fragment2"
-        android:name="br.pro.aguiar.fdam1.DadoFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment"
-        tools:layout="@layout/fragment_dado" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

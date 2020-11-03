@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultadoImcActivity"></activity>
+        <activity android:name=".DetalheLivroActivity"></activity>
+        <activity android:name=".LivrosActivity" />
+        <activity android:name=".ExercicoFragActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ResultadoImcActivity" />
         <activity android:name=".CadastroActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
