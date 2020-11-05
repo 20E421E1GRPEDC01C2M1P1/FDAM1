@@ -9,15 +9,7 @@
         android:id="@+id/dashboardFragment"
         android:name="br.pro.aguiar.fdam1.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
-        <action
-            android:id="@+id/action_dashboardFragment_to_configFragment"
-            app:destination="@id/configFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit" />
-    </fragment>
+        tools:layout="@layout/fragment_dashboard" />
     <fragment
         android:id="@+id/configFragment"
         android:name="br.pro.aguiar.fdam1.ConfigFragment"

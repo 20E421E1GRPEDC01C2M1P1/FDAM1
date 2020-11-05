@@ -25,7 +25,7 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnDashboardToConfig.setOnClickListener {
             var navController = findNavController()
-            navController.navigate(R.id.action_dashboardFragment_to_configFragment)
+//            navController.navigate(R.id.action_dashboardFragment_to_configFragment)
         }
     }
 
