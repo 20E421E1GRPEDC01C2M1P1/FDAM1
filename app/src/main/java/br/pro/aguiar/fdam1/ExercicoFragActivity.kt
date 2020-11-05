@@ -10,12 +10,12 @@ class ExercicoFragActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercico_frag)
 
-        btnAcessar.setOnClickListener {
-            var livrosIntent = Intent(
-                this,
-                LivrosActivity::class.java
-            )
-            startActivity(livrosIntent)
-        }
+//        btnAcessar.setOnClickListener {
+//            var livrosIntent = Intent(
+//                this,
+//                LivrosActivity::class.java
+//            )
+//            startActivity(livrosIntent)
+//        }
     }
 }
