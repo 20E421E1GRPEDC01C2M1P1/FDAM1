@@ -20,8 +20,8 @@ class ConfigFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnConfigSalvar.setOnClickListener {
-            findNavController().popBackStack()
+        textViewConfigMore.setOnClickListener {
+            findNavController().navigate(R.id.action_configFragment_to_mainActivity)
         }
     }
 

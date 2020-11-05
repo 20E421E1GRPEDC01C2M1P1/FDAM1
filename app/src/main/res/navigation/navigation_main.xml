@@ -14,5 +14,32 @@
         android:id="@+id/configFragment"
         android:name="br.pro.aguiar.fdam1.ConfigFragment"
         android:label="fragment_config"
-        tools:layout="@layout/fragment_config" />
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_dadoFragment"
+            app:destination="@id/dadoFragment" />
+        <action
+            android:id="@+id/action_configFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="br.pro.aguiar.fdam1.CreateFragment"
+        android:label="fragment_create"
+        tools:layout="@layout/fragment_create" />
+    <fragment
+        android:id="@+id/dadoFragment"
+        android:name="br.pro.aguiar.fdam1.DadoFragment"
+        android:label="fragment_dado"
+        tools:layout="@layout/fragment_dado" />
+    <fragment
+        android:id="@+id/livros_dest"
+        android:name="br.pro.aguiar.fdam1.ListaLivrosFragment"
+        android:label="fragment_lista_livros"
+        tools:layout="@layout/fragment_lista_livros" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="br.pro.aguiar.fdam1.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>

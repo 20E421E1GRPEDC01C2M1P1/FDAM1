@@ -6,7 +6,15 @@
         android:icon="@android:drawable/ic_dialog_dialer"
         android:title="Dashboard" />
     <item
+        android:id="@+id/createFragment"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Formulário" />
+    <item
         android:id="@+id/configFragment"
         android:icon="@android:drawable/ic_menu_compass"
         android:title="Config." />
+    <item
+        android:id="@+id/livros_dest"
+        android:icon="@android:drawable/ic_media_pause"
+        android:title="Livros" />
 </menu>

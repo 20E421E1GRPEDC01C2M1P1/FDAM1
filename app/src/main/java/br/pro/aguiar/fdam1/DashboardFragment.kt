@@ -23,10 +23,10 @@ class DashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnDashboardToConfig.setOnClickListener {
-            var navController = findNavController()
-//            navController.navigate(R.id.action_dashboardFragment_to_configFragment)
-        }
+//        btnDashboardToConfig.setOnClickListener {
+//            var navController = findNavController()
+////            navController.navigate(R.id.action_dashboardFragment_to_configFragment)
+//        }
     }
 
 }
