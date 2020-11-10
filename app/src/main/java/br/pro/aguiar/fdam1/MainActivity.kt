@@ -12,9 +12,22 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var quantidadeCarrinho = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        textViewCarrinho.text = /*viewmodel.*/ quantidadeCarrinho.toString()
+        btnAdd.setOnClickListener {
+            quantidadeCarrinho++
+            textViewCarrinho.text = quantidadeCarrinho.toString()
+        }
+        btnSub.setOnClickListener {
+            quantidadeCarrinho--
+            textViewCarrinho.text = quantidadeCarrinho.toString()
+        }
+
+
         btnAcessar.setOnClickListener {
             // Pegar o nome
             var nomeCompleto =
