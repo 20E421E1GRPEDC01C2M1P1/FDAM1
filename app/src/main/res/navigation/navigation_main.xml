@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/createFragment"
-        android:name="br.pro.aguiar.fdam1.CreateFragment"
+        android:name="br.pro.aguiar.fdam1.ui.create.CreateFragment"
         android:label="fragment_create"
         tools:layout="@layout/fragment_create" />
     <fragment

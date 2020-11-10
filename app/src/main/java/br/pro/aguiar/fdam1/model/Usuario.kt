@@ -19,4 +19,8 @@ class Usuario (
                 "Altura:\t$altura cm"
 
     }
+
+    fun store(){
+        // armazena esse usuarios na base
+    }
 }
