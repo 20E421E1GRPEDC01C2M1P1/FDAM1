@@ -19,16 +19,33 @@ class DashboardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(
+        var view = inflater.inflate(
             R.layout.fragment_dashboard,
             container,
             false)
+
+        dashboardViewModelFactory = DashboardViewModelFactory()
+        var viewModelProvider = ViewModelProvider(requireActivity(), dashboardViewModelFactory)
+        dashboardViewModel = viewModelProvider
+            .get(DashboardViewModel::class.java)
+
+        dashboardViewModel.carrinhoCompras.observe(viewLifecycleOwner) { novoValorQuantidadeCarrinho ->
+            textViewDashBoardCarrinho.text = novoValorQuantidadeCarrinho?.toString()
+        }
+
+        dashboardViewModel.totalCompra.observe(viewLifecycleOwner) {
+            textViewDashboardTotalCompra.text = it.toString()
+        }
+
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        /*
         dashboardViewModelFactory = DashboardViewModelFactory(10)
+
 
         var viewModelProvider = ViewModelProvider(this, dashboardViewModelFactory)
 
@@ -36,20 +53,29 @@ class DashboardFragment : Fragment() {
                                 .get(DashboardViewModel::class.java)
 
         dashboardViewModel.carrinhoCompras.observe(
-            viewLifecycleOwner, Observer {novoValorQuantidadeCarrinho ->
+            viewLifecycleOwner) { novoValorQuantidadeCarrinho ->
                 textViewDashBoardCarrinho.text = novoValorQuantidadeCarrinho?.toString()
             }
-        )
-        //textViewDashBoardCarrinho.text = dashboardViewModel.carrinhoCompras.value.toString()
+
 
         btnDashboardAdd.setOnClickListener {
-            //textViewDashBoardCarrinho.text =
-            dashboardViewModel.addCarrinho() //.toString()
+            dashboardViewModel.addCarrinho()
         }
 
         btnDashboardSub.setOnClickListener {
-            //textViewDashBoardCarrinho.text =
-             dashboardViewModel.subCarrinho() //.toString()
+             dashboardViewModel.subCarrinho()
+        }
+
+         */
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnDashboardAdd.setOnClickListener {
+            dashboardViewModel.addCarrinho()
+        }
+        btnDashboardSub.setOnClickListener {
+            dashboardViewModel.subCarrinho()
         }
     }
 

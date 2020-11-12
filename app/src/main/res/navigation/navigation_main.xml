@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_dashboard" />
     <fragment
         android:id="@+id/configFragment"
-        android:name="br.pro.aguiar.fdam1.ConfigFragment"
+        android:name="br.pro.aguiar.fdam1.ui.config.ConfigFragment"
         android:label="fragment_config"
         tools:layout="@layout/fragment_config" >
         <action
