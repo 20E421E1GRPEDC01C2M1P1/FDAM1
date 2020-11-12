@@ -1,17 +1,24 @@
 package br.pro.aguiar.fdam1.ui.dashboard
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel() : ViewModel() {
-    var carrinhoCompras = 0
+class DashboardViewModel(quantidade: Int) : ViewModel() {
+    var carrinhoCompras = MutableLiveData<Int>()
 
-    fun addCarrinho(): Int {
-        carrinhoCompras++
-        return carrinhoCompras
+    init {
+       carrinhoCompras.value = quantidade
     }
 
-    fun subCarrinho(): Int {
-        carrinhoCompras--
-        return carrinhoCompras
+    fun addCarrinho() /*: Int*/ {
+//        var quant = carrinhoCompras.value!!
+//        carrinhoCompras.value = quant++
+        carrinhoCompras.value = carrinhoCompras.value?.plus(1)
+        //return carrinhoCompras.value!!
+    }
+
+    fun subCarrinho() /*: Int*/ {
+        carrinhoCompras.value = carrinhoCompras.value?.minus(1)
+        //return carrinhoCompras.value!!
     }
 }

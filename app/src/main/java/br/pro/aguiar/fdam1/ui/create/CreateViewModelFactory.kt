@@ -11,9 +11,6 @@ class CreateViewModelFactory
         if (modelClass.isAssignableFrom(CreateViewModel::class.java)){
             return CreateViewModel() as T
         }
-        if (modelClass.isAssignableFrom(DashboardViewModel::class.java)){
-            return DashboardViewModel() as T
-        }
         throw IllegalArgumentException(
             "Deve ser passada a classe CreateViewModel.")
     }

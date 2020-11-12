@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.pro.aguiar.fdam1.R
 import kotlinx.android.synthetic.main.fragment_dashboard.*
@@ -27,17 +28,28 @@ class DashboardFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        dashboardViewModelFactory = DashboardViewModelFactory()
-        var ViewModelProvider = ViewModelProvider(this, dashboardViewModelFactory)
-        dashboardViewModel = ViewModelProvider
+        dashboardViewModelFactory = DashboardViewModelFactory(10)
+
+        var viewModelProvider = ViewModelProvider(this, dashboardViewModelFactory)
+
+        dashboardViewModel = viewModelProvider
                                 .get(DashboardViewModel::class.java)
 
-        textViewDashBoardCarrinho.text = dashboardViewModel.carrinhoCompras.toString()
+        dashboardViewModel.carrinhoCompras.observe(
+            viewLifecycleOwner, Observer {novoValorQuantidadeCarrinho ->
+                textViewDashBoardCarrinho.text = novoValorQuantidadeCarrinho?.toString()
+            }
+        )
+        //textViewDashBoardCarrinho.text = dashboardViewModel.carrinhoCompras.value.toString()
+
         btnDashboardAdd.setOnClickListener {
-            textViewDashBoardCarrinho.text = dashboardViewModel.addCarrinho().toString()
+            //textViewDashBoardCarrinho.text =
+            dashboardViewModel.addCarrinho() //.toString()
         }
+
         btnDashboardSub.setOnClickListener {
-            textViewDashBoardCarrinho.text = dashboardViewModel.subCarrinho().toString()
+            //textViewDashBoardCarrinho.text =
+             dashboardViewModel.subCarrinho() //.toString()
         }
     }
 
