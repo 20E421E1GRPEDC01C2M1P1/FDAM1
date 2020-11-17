@@ -10,4 +10,9 @@
         android:name="br.pro.aguiar.fdam1.carro.ui.lista.ListaCarroFragment"
         android:label="lista_carro_fragment"
         tools:layout="@layout/lista_carro_fragment" />
+    <fragment
+        android:id="@+id/showCarroFragment"
+        android:name="br.pro.aguiar.fdam1.carro.ui.show.ShowCarroFragment"
+        android:label="show_carro_fragment"
+        tools:layout="@layout/show_carro_fragment" />
 </navigation>

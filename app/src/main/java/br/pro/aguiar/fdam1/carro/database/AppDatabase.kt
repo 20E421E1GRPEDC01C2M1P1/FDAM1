@@ -4,6 +4,8 @@ import br.pro.aguiar.fdam1.carro.model.Carro
 
 class AppDatabase {
 
+    //private var carro: Carro? = null
+
     private var carros: MutableList<Carro> = mutableListOf(
         Carro("Ford", "Fiesta", "PJG5L87", 4),
         Carro("Ford", "Ka", "MHD5Ç86", 2),

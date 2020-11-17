@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import br.pro.aguiar.fdam1.MainViewModel
 import br.pro.aguiar.fdam1.R
 import br.pro.aguiar.fdam1.carro.database.AppDatabase
 import br.pro.aguiar.fdam1.carro.model.Carro
@@ -16,6 +18,7 @@ import kotlinx.android.synthetic.main.lista_carro_fragment.*
 class ListaCarroFragment : Fragment() {
 
     private lateinit var listaCarroViewModel: ListaCarroViewModel
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +44,22 @@ class ListaCarroFragment : Fragment() {
                     showSnackbar("Nenhum carro encontrado na base.")
             }
 
+        mainViewModel =
+            ViewModelProvider(requireActivity())
+                .get(MainViewModel::class.java)
+
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        listViewCarros.setOnItemClickListener { adapterView, view, i, l ->
+            var carro = listaCarroViewModel.carros.value!!.get(i)
+            mainViewModel.selectCar(carro)
+            findNavController().navigate(R.id.showCarroFragment)
+        }
+
     }
 
     private fun showSnackbar(msg: String) {
