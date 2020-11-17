@@ -60,6 +60,9 @@ class ListaCarroFragment : Fragment() {
             findNavController().navigate(R.id.showCarroFragment)
         }
 
+        fabListaCarroAdd.setOnClickListener {
+            findNavController().navigate(R.id.createCarroFragment)
+        }
     }
 
     private fun showSnackbar(msg: String) {

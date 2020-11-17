@@ -15,4 +15,9 @@
         android:name="br.pro.aguiar.fdam1.carro.ui.show.ShowCarroFragment"
         android:label="show_carro_fragment"
         tools:layout="@layout/show_carro_fragment" />
+    <fragment
+        android:id="@+id/createCarroFragment"
+        android:name="br.pro.aguiar.fdam1.carro.ui.create.CreateCarroFragment"
+        android:label="create_carro_fragment"
+        tools:layout="@layout/create_carro_fragment" />
 </navigation>

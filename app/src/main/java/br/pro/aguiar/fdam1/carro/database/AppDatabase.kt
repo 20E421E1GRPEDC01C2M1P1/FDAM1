@@ -16,6 +16,10 @@ class AppDatabase {
         return carros
     }
 
+    fun store(carro: Carro) {
+        carros.add(carro)
+    }
+
     companion object {
         private var instance: AppDatabase? = null
         fun getInstance(): AppDatabase {
