@@ -1,8 +1,9 @@
-package br.pro.aguiar.fdam1
+package br.pro.aguiar.fdam1.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import br.pro.aguiar.fdam1.R
 import br.pro.aguiar.fdam1.model.Usuario
 import kotlinx.android.synthetic.main.activity_home.*
 

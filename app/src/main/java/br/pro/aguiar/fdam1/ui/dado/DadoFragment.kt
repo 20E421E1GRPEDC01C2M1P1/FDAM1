@@ -1,30 +1,34 @@
-package br.pro.aguiar.fdam1
+package br.pro.aguiar.fdam1.ui.dado
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_info_atual.*
+import androidx.fragment.app.Fragment
+import br.pro.aguiar.fdam1.R
+import kotlinx.android.synthetic.main.fragment_dado.*
+import java.util.*
 
-class InfoAtualFragment : Fragment() {
+class DadoFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(
-            R.layout.fragment_info_atual,
+        var view = inflater.inflate(
+            R.layout.fragment_dado,
             container,
             false)
+        //
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        textViewLivroAtualTitulo.text = "Android com Kotlin"
-        textViewLivroAtualAutor.text = "João Borges"
-        textViewLivroAtualQuantidadePaginas.text = "500"
-        textViewLivroAtualPaginaAtual.text = "400"
+        btnLancarDado.setOnClickListener {
+            textViewD6.text = (Random().nextInt(6) + 1).toString()
+        }
     }
+
 }

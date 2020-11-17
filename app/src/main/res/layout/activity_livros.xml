@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LivrosActivity">
+    tools:context=".activity.LivrosActivity">
 
     <fragment
         android:id="@+id/fragment"
-        android:name="br.pro.aguiar.fdam1.InfoAtualFragment"
+        android:name="br.pro.aguiar.fdam1.ui.info.InfoAtualFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/fragment2"
-        android:name="br.pro.aguiar.fdam1.ListaLivrosFragment"
+        android:name="br.pro.aguiar.fdam1.ui.livro.lista.ListaLivrosFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

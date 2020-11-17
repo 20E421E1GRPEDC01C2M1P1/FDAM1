@@ -29,12 +29,12 @@
         tools:layout="@layout/fragment_create" />
     <fragment
         android:id="@+id/dadoFragment"
-        android:name="br.pro.aguiar.fdam1.DadoFragment"
+        android:name="br.pro.aguiar.fdam1.ui.dado.DadoFragment"
         android:label="fragment_dado"
         tools:layout="@layout/fragment_dado" />
     <fragment
         android:id="@+id/livros_dest"
-        android:name="br.pro.aguiar.fdam1.ListaLivrosFragment"
+        android:name="br.pro.aguiar.fdam1.ui.livro.lista.ListaLivrosFragment"
         android:label="fragment_lista_livros"
         tools:layout="@layout/fragment_lista_livros" />
     <activity
