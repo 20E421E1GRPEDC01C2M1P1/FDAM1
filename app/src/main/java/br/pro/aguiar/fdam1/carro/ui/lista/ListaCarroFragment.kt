@@ -72,6 +72,7 @@ class ListaCarroFragment : Fragment() {
             Snackbar.LENGTH_LONG
         ).show()
     }
+
     private fun adaptarListView(listaDeCarros: List<Carro>) {
         listViewCarros.adapter =
             ArrayAdapter(

@@ -11,7 +11,7 @@ class MainViewModel:  ViewModel() {
     val carro: LiveData<Carro>
         get() = _carro
 
-    fun selectCar(carro: Carro) {
+    fun selectCar(carro: Carro?) {
         _carro.value = carro
     }
 }

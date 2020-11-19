@@ -51,12 +51,15 @@ class CreateCarroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fabCreateCarroSalvar.setOnClickListener {
+
+            // Validacao do formulario
+
             createCarroViewModel
                 .store(
                     editTextCreateCarroMarca.text.toString(),
                     editTextCreateCarroModelo.text.toString(),
                     editTextCreateCarroPlaca.text.toString(),
-                    editTextCreateCarroPortas.text.toString(),
+                    editTextCreateCarroPortas.text.toString()
                 )
         }
     }
