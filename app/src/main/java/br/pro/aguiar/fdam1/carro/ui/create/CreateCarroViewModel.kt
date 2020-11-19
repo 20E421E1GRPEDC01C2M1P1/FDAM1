@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import br.pro.aguiar.fdam1.carro.database.AppDatabase
 import br.pro.aguiar.fdam1.carro.model.Carro
 
-class CreateCarroViewModel(var instance: AppDatabase) : ViewModel() {
+class CreateCarroViewModel(var appDatabase: AppDatabase) : ViewModel() {
 
     private val _msg = MutableLiveData<String>()
     val msg: LiveData<String>
@@ -22,20 +22,22 @@ class CreateCarroViewModel(var instance: AppDatabase) : ViewModel() {
     }
 
     fun store(
-        marca: String,
-        modelo: String,
-        placa: String,
-        portas: String
+        marca: String, modelo: String,
+        placa: String, portas: String,
+        carro: Carro?
     ){
-        instance.store(
-            Carro(
-                marca, modelo, placa, portas.toInt()
-            )
-        )
+        if (carro == null)
+            appDatabase.store(
+                Carro(marca, modelo, placa, portas.toInt()))
+        else {
+            appDatabase.update(
+                marca, modelo, placa, portas.toInt(), carro)
+        }
 
         if (true){
             _status.value = true
-            _msg.value = "${marca}, ${modelo} persistido com sucesso!"
+            _msg.value = "${marca}, " +
+                    "${modelo} persistido com sucesso!"
         }
     }
 }

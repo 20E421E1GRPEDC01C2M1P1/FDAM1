@@ -12,6 +12,7 @@ import br.pro.aguiar.fdam1.MainViewModel
 import br.pro.aguiar.fdam1.R
 import br.pro.aguiar.fdam1.carro.database.AppDatabase
 import br.pro.aguiar.fdam1.carro.model.Carro
+import br.pro.aguiar.fdam1.carro.ui.factory.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.lista_carro_fragment.*
 
@@ -32,7 +33,8 @@ class ListaCarroFragment : Fragment() {
         listaCarroViewModel =
             ViewModelProvider(
                     this,
-                    ListaCarroViewModelFactory(AppDatabase.getInstance()))
+                    ViewModelFactory(AppDatabase.getInstance())
+            )
                 .get(ListaCarroViewModel::class.java)
 
         listaCarroViewModel
@@ -61,6 +63,7 @@ class ListaCarroFragment : Fragment() {
         }
 
         fabListaCarroAdd.setOnClickListener {
+            mainViewModel.selectCar(null)
             findNavController().navigate(R.id.createCarroFragment)
         }
     }

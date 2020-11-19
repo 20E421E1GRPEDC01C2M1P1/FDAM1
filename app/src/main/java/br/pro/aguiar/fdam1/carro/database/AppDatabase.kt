@@ -25,6 +25,15 @@ class AppDatabase {
         carros.remove(carro)
     }
 
+    fun update(marca: String, modelo: String, placa: String, portas: Int, carro: Carro) {
+        var index = carros.indexOf(carro)
+        carro.marca = marca
+        carro.modelo = modelo
+        carro.placa = placa
+        carro.portas = portas
+        carros[index] = carro
+    }
+
 
     companion object {
         private var instance: AppDatabase? = null
