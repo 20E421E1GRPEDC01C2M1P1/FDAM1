@@ -39,6 +39,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewListCarroModelo" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Opiniões:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewListCarroQuantidadeOpiniao" />
+
+    <TextView
         android:id="@+id/textViewListCarroQuantidadeOpiniao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,6 +56,16 @@
         android:hint="#"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnListCarroEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <View
         android:id="@+id/divider2"

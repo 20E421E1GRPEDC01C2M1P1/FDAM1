@@ -10,7 +10,8 @@ import br.pro.aguiar.fdam1.carro.model.Carro
 import kotlinx.android.synthetic.main.list_carro_recycler.view.*
 
 class CarroRecyclerAdapter(
-  private val carros: List<Carro>
+  private val carros: List<Carro>,
+  private val actionClick: (Carro) -> Unit
 ) : RecyclerView.Adapter<CarroRecyclerAdapter.CarroViewHolder>() {
 
     class CarroViewHolder(view: View)
@@ -19,6 +20,7 @@ class CarroRecyclerAdapter(
         val textViewMarca = view.textViewListCarroMarca
         val textViewPlaca = view.textViewListCarroPlaca
         val textViewQuantidadeOpiniao = view.textViewListCarroQuantidadeOpiniao
+        var btnEditar = view.btnListCarroEditar
     }
 
     override fun onCreateViewHolder(
@@ -40,6 +42,9 @@ class CarroRecyclerAdapter(
         holder.textViewMarca.text = carro.marca
         holder.textViewPlaca.text = carro.placa
         holder.textViewQuantidadeOpiniao.text = carro.opinioes?.size.toString()
+        holder.btnEditar.setOnClickListener {
+            actionClick(carro)
+        }
     }
 
     override fun getItemCount(): Int = carros.size

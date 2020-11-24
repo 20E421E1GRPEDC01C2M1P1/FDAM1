@@ -8,8 +8,11 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.pro.aguiar.fdam1.MainViewModel
 import br.pro.aguiar.fdam1.R
+import br.pro.aguiar.fdam1.carro.adapter.CarroRecyclerAdapter
 import br.pro.aguiar.fdam1.carro.database.AppDatabase
 import br.pro.aguiar.fdam1.carro.model.Carro
 import br.pro.aguiar.fdam1.carro.ui.factory.ViewModelFactory
@@ -56,11 +59,11 @@ class ListaCarroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        listViewCarros.setOnItemClickListener { adapterView, view, i, l ->
-            var carro = listaCarroViewModel.carros.value!!.get(i)
-            mainViewModel.selectCar(carro)
-            findNavController().navigate(R.id.showCarroFragment)
-        }
+//        listViewCarros.setOnItemClickListener { adapterView, view, i, l ->
+//            var carro = listaCarroViewModel.carros.value!!.get(i)
+//            mainViewModel.selectCar(carro)
+//            findNavController().navigate(R.id.showCarroFragment)
+//        }
 
         fabListaCarroAdd.setOnClickListener {
             mainViewModel.selectCar(null)
@@ -77,11 +80,18 @@ class ListaCarroFragment : Fragment() {
     }
 
     private fun adaptarListView(listaDeCarros: List<Carro>) {
-        listViewCarros.adapter =
-            ArrayAdapter(
-                requireContext(),
-                android.R.layout.simple_list_item_1,
-                listaDeCarros
-            )
+        // RecyclerView
+        val carroRecyclerAdapter = CarroRecyclerAdapter(listaDeCarros, this::actionClick)
+/*        val carroRecyclerAdapter = CarroRecyclerAdapter(listaDeCarros) {
+//            mainViewModel.selectCar(it)
+//            findNavController().navigate(R.id.showCarroFragment)
+//        }*/
+        listViewCarros.adapter = carroRecyclerAdapter
+        listViewCarros.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    private fun actionClick(carro: Carro) {
+        mainViewModel.selectCar(carro)
+        findNavController().navigate(R.id.showCarroFragment)
     }
 }
