@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.pro.aguiar.fdam1.MainViewModel
 import br.pro.aguiar.fdam1.R
 import br.pro.aguiar.fdam1.carro.adapter.CarroRecyclerAdapter
@@ -80,12 +82,32 @@ class ListaCarroFragment : Fragment() {
     }
 
     private fun adaptarListView(listaDeCarros: List<Carro>) {
-        // RecyclerView
+
         val carroRecyclerAdapter = CarroRecyclerAdapter(listaDeCarros, this::actionClick)
-/*        val carroRecyclerAdapter = CarroRecyclerAdapter(listaDeCarros) {
-//            mainViewModel.selectCar(it)
-//            findNavController().navigate(R.id.showCarroFragment)
-//        }*/
+
+        val itemTouchHelper = ItemTouchHelper(
+            object : ItemTouchHelper.SimpleCallback(
+                0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+            ) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean = false
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    if (direction == ItemTouchHelper.LEFT) {
+                        val position = viewHolder.adapterPosition
+                        listaCarroViewModel.delete(listaDeCarros.get(position))
+                        carroRecyclerAdapter.notifyItemRemoved(position)
+                    } else {
+                       //
+                    }
+                }
+            }
+        )
+        itemTouchHelper.attachToRecyclerView(listViewCarros)
+
         listViewCarros.adapter = carroRecyclerAdapter
         listViewCarros.layoutManager = LinearLayoutManager(requireContext())
     }

@@ -8,8 +8,10 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.pro.aguiar.fdam1.MainViewModel
 import br.pro.aguiar.fdam1.R
+import br.pro.aguiar.fdam1.carro.adapter.OpiniaoRecyclerAdapter
 import br.pro.aguiar.fdam1.carro.database.AppDatabase
 import br.pro.aguiar.fdam1.carro.model.Carro
 import br.pro.aguiar.fdam1.carro.ui.factory.ViewModelFactory
@@ -83,11 +85,9 @@ class ShowCarroFragment : Fragment() {
             if (!carro.opinioes.isNullOrEmpty()) {
                 textViewShowCarroQtdOpinioes.text = carro.opinioes!!.size.toString()
                 listViewShowOpinioes.adapter =
-                    ArrayAdapter(
-                        requireContext(),
-                        android.R.layout.simple_list_item_1,
-                        carro.opinioes!!
-                    )
+                    OpiniaoRecyclerAdapter(carro.opinioes!!)
+                listViewShowOpinioes.layoutManager =
+                    LinearLayoutManager(requireContext())
             }
 
         } else if(!status){
