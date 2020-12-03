@@ -1,3 +1,4 @@
+include ':jokenpo'
 include ':tdd'
 include ':app'
 rootProject.name = "FDAM1"
